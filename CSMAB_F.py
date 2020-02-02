@@ -17,12 +17,6 @@ from sklearn import datasets
 from scipy.special import expit
 import random
 
-auth.authenticate_user()
-gauth = GoogleAuth()
-gauth.credentials = GoogleCredentials.get_application_default()
-drive = GoogleDrive(gauth)
-
-
 
 ad = pd.read_csv('ads.csv',encoding='iso-8859-1')[:50]
 srch = pd.read_csv('search.csv',encoding='iso-8859-1')[:10000]
@@ -61,8 +55,6 @@ class Context:
     self.vec_dict = dict(zip(words, arrs))      
     global ad 
     self.ads = Ads(ad)
-    #print('ads')
-    #print ([self.ads.getRow(i) for i in range(self.ads.n)])
     self.ad_centroids = [self.computeCentroid(self.ads.getRow(i)[1]) for i in range(self.ads.n)]
     self.max_geo_distance=Operations.computeDistance(50,30,70,140)
     global srch
@@ -113,8 +105,6 @@ class BernoulliBandit(Bandit):
         #self.theta = np.random.rand(self.d, self.n)
         self.bias, self.theta=self.generate_thetas()
         self.x = np.random.rand(self.d, self.n)
-        #self.x=np.array([[0.80101461,0.80101461,0.80101461],[0.57609959,0.57609959,0.57609959]])
-        #self.x=np.ones((self.d,self.n))
         print ('\n\noptimal theta :\n', self.theta)
         #print ('\n\nproduct : \n', (np.matmul(np.transpose(self.x), self.theta)*np.eye(self.n)).sum(axis = 0))
         self.avg_reward = [0 for _ in range(self.n)]
