@@ -1,4 +1,4 @@
-# Contextual-Bandits
+# Multi-Armed Bandits
 
 A multi-armed bandit is a popular problem in probability theory and reinforcement learning,
 in which a given slot machine (resource pool) has n arms (bandit/resource), each rigged
