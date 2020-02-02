@@ -30,7 +30,7 @@ a factor in the reduced regret.
 
 For detailed results, please view the Report.pdf file.
 
-#Steps to Execute
+# Steps to Execute
 
 1) The dataset used is a subset of the Avito Context Ad Clicks data (https://www.kaggle.com/c/avito-context-ad-clicks/data). The dataset which is originally in Russian, was translated to English for convenience. The advertisement titles have been vectorized using the word_to_vector python script and this creates two npy files.
 2) Then the CSMAB_F python script is run and it is able to predict the best advertisements to be displayed based on the user context.
